@@ -15,3 +15,6 @@ exports.getSingleProductPage = (req,res, next) => {
 exports.getCheckoutPage = (req,res,next ) => {
     res.render("pages/checkout.ejs");
 }
+exports.get404 = (req, res, next) => {
+    res.status(404).render("pages/404.ejs");
+};
