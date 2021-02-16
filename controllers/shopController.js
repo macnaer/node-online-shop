@@ -5,9 +5,10 @@ exports.getHomePage = (req, res, next) => {
 }
 exports.getCategoryPage = (req, res, next )  => {
     Product.findAll()
-    .then(([rows, fildData]) =>{
-        console.log("Data from DB ", rows);
-        res.render("pages/category");
+    .then((products) =>{
+        res.render("pages/category", {
+            products: products,
+        });
     })
     .catch(err => console.log(err));
 }
