@@ -33,6 +33,9 @@ exports.getProduct = (req,res,next ) => {
     })
     .catch(err => console.log(err))
 }
+exports.getNewProductPage = (req, res, next) => {
+    res.render("pages/addNewProduct.ejs");
+}
 exports.get404 = (req, res, next) => { 
     res.status(404).render("pages/404.ejs");
 };
