@@ -23,6 +23,16 @@ exports.getSingleProductPage = (req,res, next) => {
 exports.getCheckoutPage = (req,res,next ) => {
     res.render("pages/checkout.ejs");
 }
-exports.get404 = (req, res, next) => {
+exports.getProduct = (req,res,next ) => {
+    const productId = req.params.productId;
+    Product.findByPk(productId)
+    .then((product) => {
+        res.render("pages/single-product", {
+            product: product
+        })
+    })
+    .catch(err => console.log(err))
+}
+exports.get404 = (req, res, next) => { 
     res.status(404).render("pages/404.ejs");
 };
